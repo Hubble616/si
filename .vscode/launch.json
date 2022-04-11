@@ -1,12 +1,39 @@
 {
     "version": "0.2.0",
+    "compounds": [
+      {
+        "name": "Launch",
+        "configurations": ["Launch server", "Launch client"]
+      }
+    ],
     "configurations": [
       {
-        "name": "cpp build and debug active file",
+        "name": "Launch client",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${fileDirname}/${fileBasenameNoExtension}",
-        "args": ["8080"],
+        "program": "${fileDirname}/a.out",
+        "args": ["localhost", "9999"],
+        "stopAtEntry": true,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "setupCommands": [
+          {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ],
+        "preLaunchTask": "Compile client",
+        "miDebuggerPath": "/usr/bin/gdb"
+      },
+      {
+        "name": "Launch server",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${fileDirname}/tiny",
+        "args": ["9999"],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
         "environment": [],
@@ -19,8 +46,9 @@
             "ignoreFailures": true
           }
         ],
-        "preLaunchTask": "C/C++: gcc build active file",
+        "preLaunchTask": "Compile server",
         "miDebuggerPath": "/usr/bin/gdb"
       }
     ]
+    
 }
