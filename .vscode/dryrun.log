@@ -1,0 +1,9 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/mnt/data/UBI/2ano/2sem/si/tp/tiny'
+gcc -O2 -Wall -I . -c csapp.c
+gcc -O2 -Wall -I . -o tiny tiny.c csapp.o -lpthread
+(cd cgi-bin; make)
+gcc -O2 -Wall -I . -o client client.c csapp.o -lpthread
+(cd libtomcrypt ; make)
+make: Leaving directory '/mnt/data/UBI/2ano/2sem/si/tp/tiny'
+ 

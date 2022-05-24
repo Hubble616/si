@@ -4,7 +4,7 @@ Paul Crocker
 Muitas Modificações 
 */
 //Definir sta linha com 1 ou com 0 se não quiser ver as linhas com debug info.
-#define DEBUG 1
+#define DEBUG 0
 
 #include <arpa/inet.h>
 #include <assert.h>

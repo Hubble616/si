@@ -33,7 +33,7 @@
         "type": "cppdbg",
         "request": "launch",
         "program": "${fileDirname}/tiny",
-        "args": ["9999"],
+        "args": ["9999", "2"],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
         "environment": [],

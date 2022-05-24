@@ -2,3 +2,8 @@ a.out
 client
 tiny
 *.o
+/libtomcrypt/example
+/cgi-bin/adder
+help
+*.py
+test.c

@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "socket.h": "c"
+        "socket.h": "c",
+        "bitset": "c",
+        "algorithm": "c"
     }
 }
