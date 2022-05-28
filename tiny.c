@@ -41,7 +41,8 @@ void *server(void *arg)
   while (1)
   {
     
-    clientlen = sizeof(clientaddr);
+    clientlen = sizeof(clientaddr);   
+    connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen);// line:netp:tiny:accept
     for (int i = 0; i < num_threads; i++)
     {
       if (copiar->id != i)
@@ -49,8 +50,7 @@ void *server(void *arg)
         sem_wait(&mutex[i]);
       }
     }
-    connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen);
-    // line:netp:tiny:accept
+    printf("Thread %d: Conectado\n", copiar->id);                            
     doit(connfd);                                             // line:netp:tiny:doit
     Close(connfd);                                            // line:netp:tiny:close
     for (int i = 0; i < num_threads; i++)
@@ -98,12 +98,13 @@ int main(int argc, char **argv)
   for (int i = 0; i < threads; i++)
   {
     h->id = i;
-    pthread_create(&tid[i], NULL, server, h);
+    pthread_create(&tid[i], NULL, server, (void *)h);
   }
-  for (int i = 0; i < threads; i++)
+   for (int i = 0; i < threads; i++)
   {
-    pthread_join(tid[i], NULL);
+    sem_destroy(&mutex[i]);
   }
+  pthread_exit(NULL);
 }
 
 /* $end tinymain */

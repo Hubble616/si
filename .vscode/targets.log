@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue May 24 17:42:34 2022
+# Make data base, printed on Sat May 28 01:53:39 2022
 
 # Variables
 
@@ -19,7 +19,7 @@ NO_AT_BRIDGE = 1
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/hubble/.gtkrc:/home/hubble/.config/gtkrc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c3989b5a-000d-462b-867d-398642d96372.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-63088c5f-e961-4887-b5c6-be2baf6f8162.sock
 # environment
 LC_NUMERIC = C
 # environment
@@ -89,13 +89,13 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 8368
+VSCODE_PID = 4082451
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/hubble:@/tmp/.ICE-unix/1063,unix/hubble:/tmp/.ICE-unix/1063
+SESSION_MANAGER = local/hubble:@/tmp/.ICE-unix/1097,unix/hubble:/tmp/.ICE-unix/1097
 # automatic
 *F = $(notdir $*)
 # environment
@@ -115,6 +115,8 @@ SHELL = /bin/sh
 # default
 MAKECMDGOALS := all
 # environment
+DOTNET_BUNDLE_EXTRACT_BASE_DIR = /home/hubble/.cache/dotnet_bundle_extract
+# environment
 MANGOHUD = 1
 # environment
 SHLVL = 1
@@ -123,7 +125,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/hubble/.local/bin
+PATH = /usr/local/sbin:/usr/local/bin:/usr/bin:/home/hubble/.dotnet/tools:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/hubble/.local/bin
 # default
 MAKEFILES := 
 # environment
@@ -163,7 +165,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 931
+SYSTEMD_EXEC_PID = 964
 # environment
 DISPLAY = :0
 # environment
@@ -216,8 +218,10 @@ KDE_SESSION_VERSION = 5
 CC = gcc
 # environment
 KDE_FULL_SESSION = true
+# environment
+DOTNET_ROOT = /usr/share/dotnet
 # variable set hash-table stats:
-# Load=103/1024=10%, Rehash=0, Collisions=5/136=4%
+# Load=105/1024=10%, Rehash=0, Collisions=5/138=4%
 
 # Pattern-specific Variable Values
 
@@ -238,7 +242,7 @@ KDE_FULL_SESSION = true
 # Not a target:
 tiny.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-24 16:41:06.159839231
+#  Last modified 2022-05-24 17:54:09.535914145
 #  File has been updated.
 #  Successfully updated.
 
@@ -332,7 +336,7 @@ hashexample:
 
 tiny: tiny.c csapp.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-24 16:41:22.278129788
+#  Last modified 2022-05-24 17:54:10.712834408
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 16):
@@ -358,6 +362,6 @@ tiny: tiny.c csapp.o
 # strcache performance: lookups = 54 / hit rate = 42%
 # hash-table stats:
 # Load=31/8192=0%, Rehash=0, Collisions=0/54=0%
-# Finished Make data base on Tue May 24 17:42:34 2022
+# Finished Make data base on Sat May 28 01:53:39 2022
 
  
