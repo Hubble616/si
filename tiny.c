@@ -16,7 +16,7 @@ void serve_static(int fd, char *filename, int filesize);
 void get_filetype(char *filename, char *filetype);
 void serve_dynamic(int fd, char *filename, char *cgiargs);
 void clienterror(int fd, char *cause, char *errnum, char *shortmsg, char *longmsg);
-sem_t *mutex;
+sem_t mutex;
 
 int numeroRequestStat = 0;
 
@@ -37,29 +37,21 @@ void *server(void *arg)
   unsigned int clientlen = copiar->clientlen;
   struct sockaddr_in clientaddr = copiar->clientaddr;
   int num_threads = copiar->num_threads;
-  printf("Thread %d: Iniciando...\n", copiar->id);
+  int id = copiar->id;
+  printf("Thread %d: Iniciando...\n", id);
   while (1)
   {
     
     clientlen = sizeof(clientaddr);   
+    
+    printf("Thread %d: Esperando conecção...\n", id);
+    
     connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen);// line:netp:tiny:accept
-    for (int i = 0; i < num_threads; i++)
-    {
-      if (copiar->id != i)
-      {
-        sem_wait(&mutex[i]);
-      }
-    }
-    printf("Thread %d: Conectado\n", copiar->id);                            
+    sem_wait(&mutex);  
+    printf("Thread %d: Conectando a %s\n", id, inet_ntoa(clientaddr.sin_addr));      
     doit(connfd);                                             // line:netp:tiny:doit
     Close(connfd);                                            // line:netp:tiny:close
-    for (int i = 0; i < num_threads; i++)
-    {
-      if (copiar->id != i)
-      {
-        sem_post(&mutex[i]);
-      }
-    }
+    sem_post(&mutex);
     
   }
 }
@@ -90,20 +82,17 @@ int main(int argc, char **argv)
   h->clientlen = clientlen;
   h->connfd = connfd;
   h->num_threads = threads;
-  mutex = (sem_t *)malloc(sizeof(sem_t)*threads);
-  for (int i = 0; i < threads; i++)
-  {
-    sem_init(&mutex[i], 0, 1);
-  }
+  
+  sem_init(&mutex, 0, 1);
+  
   for (int i = 0; i < threads; i++)
   {
     h->id = i;
     pthread_create(&tid[i], NULL, server, (void *)h);
   }
-   for (int i = 0; i < threads; i++)
-  {
-    sem_destroy(&mutex[i]);
-  }
+   
+  sem_destroy(&mutex);
+  
   pthread_exit(NULL);
 }
 
