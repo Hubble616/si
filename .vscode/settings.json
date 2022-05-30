@@ -2,6 +2,8 @@
     "files.associations": {
         "socket.h": "c",
         "bitset": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "functional": "c",
+        "tomcrypt_hash.h": "c"
     }
 }

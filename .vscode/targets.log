@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat May 28 01:53:39 2022
+# Make data base, printed on Sun May 29 04:41:50 2022
 
 # Variables
 
@@ -19,7 +19,7 @@ NO_AT_BRIDGE = 1
 # environment
 GTK_RC_FILES = /etc/gtk/gtkrc:/home/hubble/.gtkrc:/home/hubble/.config/gtkrc
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-63088c5f-e961-4887-b5c6-be2baf6f8162.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5d76f2b0-477f-4f04-8638-8b6e59c87192.sock
 # environment
 LC_NUMERIC = C
 # environment
@@ -89,13 +89,13 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 4082451
+VSCODE_PID = 511203
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/hubble:@/tmp/.ICE-unix/1097,unix/hubble:/tmp/.ICE-unix/1097
+SESSION_MANAGER = local/hubble:@/tmp/.ICE-unix/1076,unix/hubble:/tmp/.ICE-unix/1076
 # automatic
 *F = $(notdir $*)
 # environment
@@ -104,6 +104,7 @@ CHROME_DESKTOP = code-url-handler.desktop
 DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # makefile (from 'Makefile', line 11)
 LIB = -lpthread
+ 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
@@ -165,7 +166,7 @@ XDG_VTNR = 1
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 964
+SYSTEMD_EXEC_PID = 942
 # environment
 DISPLAY = :0
 # environment
@@ -242,7 +243,7 @@ DOTNET_ROOT = /usr/share/dotnet
 # Not a target:
 tiny.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-24 17:54:09.535914145
+#  Last modified 2022-05-28 02:49:12.257937375
 #  File has been updated.
 #  Successfully updated.
 
@@ -301,7 +302,6 @@ adder:
 # automatic
 # | := 
 # variable set hash-table stats:
- 
 # Load=8/32=25%, Rehash=0, Collisions=1/11=9%
 #  recipe to execute (from 'Makefile', line 22):
 	(cd cgi-bin; make)
@@ -336,7 +336,7 @@ hashexample:
 
 tiny: tiny.c csapp.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-24 17:54:10.712834408
+#  Last modified 2022-05-28 02:49:28.505257189
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 16):
@@ -356,12 +356,12 @@ tiny: tiny.c csapp.o
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 31 / storage = 281 B / avg = 9 B
-# current buf: size = 8162 B / used = 281 B / count = 31 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 31 / storage = 260 B / avg = 8 B
+# current buf: size = 8162 B / used = 260 B / count = 31 / avg = 8 B
 
 # strcache performance: lookups = 54 / hit rate = 42%
 # hash-table stats:
 # Load=31/8192=0%, Rehash=0, Collisions=0/54=0%
-# Finished Make data base on Sat May 28 01:53:39 2022
+# Finished Make data base on Sun May 29 04:41:50 2022
 
  
