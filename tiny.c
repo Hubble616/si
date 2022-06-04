@@ -45,9 +45,9 @@ void *server(void *arg)
     clientlen = sizeof(clientaddr);   
     
     printf("Thread %d: Esperando conecção...\n", id);
-    
-    connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen);// line:netp:tiny:accept
     sem_wait(&mutex);  
+    connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen);// line:netp:tiny:accept
+    
     printf("Thread %d: Conectando a %s\n", id, inet_ntoa(clientaddr.sin_addr));      
     doit(connfd);                                             // line:netp:tiny:doit
     Close(connfd);                                            // line:netp:tiny:close
