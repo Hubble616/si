@@ -64,7 +64,7 @@ void *client(void *arg)
             fprintf(stderr, "request length large: %d\n", request_len);
             exit(EXIT_FAILURE);
         }
-        for (int i = 0; i < thread_num; i++)
+        for (int i = 0; i < 1000; i++)
         {
             if (i != id)
             {
