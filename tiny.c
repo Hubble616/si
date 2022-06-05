@@ -33,7 +33,7 @@ void *server(void *arg)
 {
   copiar_t *copiar = (copiar_t *)arg;
   int listenfd = copiar->listenfd;
-  int connfd = copiar->connfd;
+  int connfd;
   unsigned int clientlen = copiar->clientlen;
   struct sockaddr_in clientaddr = copiar->clientaddr;
   int num_threads = copiar->num_threads;
@@ -41,18 +41,21 @@ void *server(void *arg)
   printf("Thread %d: Iniciando...\n", id);
   while (1)
   {
-    
-    clientlen = sizeof(clientaddr);   
-    
+
+    clientlen = sizeof(clientaddr);
+
     printf("Thread %d: Esperando conecção...\n", id);
-    sem_wait(&mutex);  
-    connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen);// line:netp:tiny:accept
-    
-    printf("Thread %d: Conectando a %s\n", id, inet_ntoa(clientaddr.sin_addr));      
-    doit(connfd);                                             // line:netp:tiny:doit
-    Close(connfd);                                            // line:netp:tiny:close
-    sem_post(&mutex);
-    
+
+    // line:netp:tiny:accept
+      connfd = Accept(listenfd, (SA *)&clientaddr, &clientlen);
+
+      sem_wait(&mutex);
+
+      printf("Thread %d: Conectando a %s\n", id, inet_ntoa(clientaddr.sin_addr));
+      doit(connfd);  // line:netp:tiny:doit
+      Close(connfd); // line:netp:tiny:close
+
+      sem_post(&mutex);
   }
 }
 
@@ -61,7 +64,6 @@ int main(int argc, char **argv)
   int listenfd, connfd, port;
   unsigned int clientlen; // change to unsigned as sizeof returns unsigned
   struct sockaddr_in clientaddr;
-  
 
   /* Check command line args */
   if (argc <= 2)
@@ -82,17 +84,17 @@ int main(int argc, char **argv)
   h->clientlen = clientlen;
   h->connfd = connfd;
   h->num_threads = threads;
-  
+
   sem_init(&mutex, 0, 1);
-  
+
   for (int i = 0; i < threads; i++)
   {
     h->id = i;
     pthread_create(&tid[i], NULL, server, (void *)h);
   }
-   
+
   sem_destroy(&mutex);
-  
+
   pthread_exit(NULL);
 }
 
