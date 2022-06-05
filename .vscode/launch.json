@@ -12,7 +12,7 @@
         "type": "cppdbg",
         "request": "launch",
         "program": "${fileDirname}/a.out",
-        "args": ["localhost", "9999"],
+        "args": ["www.google.com", "80","1", "/index.html"],
         "stopAtEntry": true,
         "cwd": "${workspaceFolder}",
         "environment": [],

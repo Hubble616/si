@@ -51,7 +51,7 @@ int main(void)
 {
     char *buf, *p;
     char arg1[MAXLINE], arg2[MAXLINE], content[MAXLINE];
-    int n1 = 1, n2 = 7;
+    int n1, n2;
 
     /* Extract the two arguments */
     if ((buf = getenv("QUERY_STRING")) != NULL)
@@ -63,7 +63,6 @@ int main(void)
         n1 = atoi(arg1);
         n2 = atoi(arg2);
     }
-   
     int **result = malloc(2*sizeof(int*));
     result[0] = malloc(sizeof(int));
     result[1] = malloc(20*sizeof(int));
@@ -77,7 +76,7 @@ int main(void)
     sprintf(content, "%sThe nonce is: %d\r\n<p>", content, *result[0]);
     for (int i=0;i<20;i++)
         sprintf(content, "%s%x", content, result[1][i]);
-    sprintf(content, "%sThanks for visiting!\r\n", content);
+    sprintf(content, "%s<p> \nThanks for visiting!\r\n", content);
 
     /* Generate the HTTP response */
     /* Paul Crocker - changed so that headers always produced on the parent process */
